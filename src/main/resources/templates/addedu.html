@@ -12,19 +12,19 @@
     <form th:action="@{/addedu/{uid} (uid = ${uid})}" th:object="${education}" method="post">
 
         <div class="form-group">
-            <label for="college">college</label>
+            <label for="college">College</label>
             <input type="text" class="form-control" id="college" th:field="*{college}"/>
         </div>
         <div class="form-group">
-            <label for="major">major</label>
+            <label for="major">Major</label>
             <input type="text" class="form-control" id="major" th:field="*{major}"/>
         </div>
         <div class="form-group">
-            <label for="degree">degree</label>
+            <label for="degree">Degree</label>
             <input type="text" class="form-control" id="degree" th:field="*{degree}"/>
         </div>
         <div class="form-group">
-            <label for="year">year</label>
+            <label for="year">Graduation Year</label>
             <input type="text" class="form-control" id="year" th:field="*{year}"/>
         </div>
         <button type="submit" class="btn btn-default" name = "action" value = "submit">Submit</button>

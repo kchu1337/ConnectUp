@@ -28,7 +28,6 @@ public class SearchController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String username = auth.getName();
         String role= auth.getAuthorities().toString();
-        System.out.println(role.toLowerCase());
         Integer id =  userRepository.findIdByLogin(username);
         model.addAttribute("role", role.toLowerCase());
         model.addAttribute(new Search());
@@ -63,7 +62,6 @@ public class SearchController {
             ArrayList<Integer> temp = (ArrayList<Integer>)  skillRepository.findIdByName(search.getSkill());
             results.retainAll(temp);
         }
-        System.out.println(results);
 
         //finds the list of names corresponding to the ids
         ArrayList<User> resultUsers = new ArrayList<User>();
