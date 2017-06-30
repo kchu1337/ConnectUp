@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <div th:replace="fragments/bootstrapheader :: jquery"></div>
+    <div th:replace="fragments/bootstrapheader :: bsheader"></div>
+
+    <title>Resume</title>
+</head>
+<body>
+<div th:replace="fragments/navbar :: navbar"></div>
+<div class = "col-md-4 col-md-offset-4">
+    <br/>
+
+    <table>
+        <tr><td>Name:</td><td th:text = "${user.name}" ></td> </tr>
+        <tr><td>Email:</td> <td th:text = "${user.email}" ></td></tr>
+    </table>
+    <br/>
+    <br/>
+    <table class="table table-striped" th:each="row : ${education}">
+        <tr></tr>
+        <tr>Education</tr>
+        <tr><td>College:</td><td th:text="${row.college}"></td></tr>
+        <tr><td>Major:</td><td th:text="${row.major}"></td></tr>
+        <tr><td>Degree:</td><td th:text="${row.degree}"></td></tr>
+        <tr><td>Graduation Year:</td><td th:text="${row.year}"></td></tr>
+    </table>
+    <br/>
+    <br/>
+    <table class="table table-striped" th:each="row : ${work}">
+        <tr></tr>
+        <tr>Work Experience</tr>
+        <tr><td>Company:</td><td th:text="${row.company}"></td></tr>
+        <tr><td>Job Title:</td><td th:text="${row.title}"></td></tr>
+        <tr><td>Start Date:</td><td th:text="${row.startDate}"></td></tr>
+        <tr><td>End Date:</td><td th:text="${row.endDate}"></td></tr>
+        <tr><td>Duties:</td><td th:text="${row.experience}"></td></tr>
+    </table>
+    <br/>
+    <br/>
+    <table class="table table-striped" th:each="row : ${skills}">
+        <tr></tr>
+        <tr>Skils</tr>
+        <tr><td>Skill Name:</td><td th:text="${row.name}"></td></tr>
+        <tr><td>Skill Level:</td><td th:text="${row.level}"></td></tr>
+    </table>
+</div>
+
+</body>
+</html>

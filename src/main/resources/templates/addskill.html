@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org ">
+<head>
+    <div th:replace="fragments/bootstrapheader :: jquery"></div>
+    <div th:replace="fragments/bootstrapheader :: bsheader"></div>
+    <title>Resume: Add Skill</title>
+
+</head>
+<body>
+<div th:replace="fragments/navbar :: navbar"></div>
+<div class= "col-md-4 col-md-offset-4">
+    <form th:action="@{/addskill/{uid} (uid = ${uid})}" th:object="${skill}" method="post">
+
+        <div class="form-group">
+            <label for="skill">Skill Name</label>
+            <input type="text" class="form-control" id="skill" th:field="*{name}"/>
+        </div>
+        <div class="form-group">
+            <label for="level">Skill Level</label>
+            <input type="text" class="form-control" id="level" th:field="*{level}"/>
+        </div>
+
+        <button type="submit" class="btn btn-default" name = "action" value = "submit">Done</button>
+        <button type="submit" class="btn btn-default" name = "action" value = "add1">Add Another</button>
+        <button type="submit" class="btn btn-default" name = "action" value = "skip">Skip</button>
+    </form>
+</div>
+
+</body>
+</html>

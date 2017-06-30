@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <div th:replace="fragments/bootstrapheader :: jquery"></div>
+    <div th:replace="fragments/bootstrapheader :: bsheader"></div>
+    <title>Title</title>
+</head>
+<body>
+<div th:replace="fragments/navbar :: navbar"></div>
+<div class = "container">
+<form th:action="@{/create}" th:object="${user}" method="post">
+    <table>
+        <tr>
+            <td> Email: </td>
+            <td><div>
+                <input type="text" name="email"  class="form-control" th:field="*{email}"/>
+            </div></td>
+        </tr>
+        <tr>
+            <td> Name:</td>
+            <td><div>
+                <input type="text" name="name"  class="form-control" th:field="*{name}"/>
+            </div></td>
+        </tr>
+        <tr>
+            <td> Password:</td>
+            <td><div>
+                <input type="text" name="password"  class="form-control" th:field="*{password}"/>
+            </div></td>
+        </tr>
+
+        <tr>
+            <td><div>
+                <button type="submit" class="btn btn-round btn-info" data-toggle="morphing" data-rotation-color="azure" value="Sign In">Sign In</button>
+            </div></td>
+        </tr>
+    </table>
+</form>
+</div>
+</body>
+</html>
