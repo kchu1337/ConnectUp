@@ -22,7 +22,11 @@ public class SearchController {
     private WorkRepository workRepository;
     @Autowired
     private SkillRepository skillRepository;
+    @Autowired
+    private JobRepository jobRepository;
 
+
+    //users search
     @GetMapping("/search")
     public String doSearch(Model model){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -72,5 +76,34 @@ public class SearchController {
         return "search";
     }
 
+    //Job Search
+    @GetMapping("/searchjobs")
+    public String doJobSearch(Model model){
+        return "searchjob";
+    }
+
+    @PostMapping("/searchjobs")
+    public String jobSearchResult(@RequestParam(value = "title", required = false) String title,
+                                  @RequestParam(value = "company", required = false) String company,
+                                  Model model){
+        model.addAttribute("title", title);
+        model.addAttribute("company", company);
+        Iterable<Job> results = null;
+        //Searches by company, title or both
+        if (!(title.isEmpty() || title == null)){
+            if(!(company.isEmpty() || company == null)){
+                results =jobRepository.findAllByTitleAndCompany(title, company);
+            }
+            else{
+                results =jobRepository.findAllByTitle(title);
+            }
+        }
+        else if(!(company.isEmpty() || company == null)){
+            results =jobRepository.findAllByCompany(company);
+        }
+
+        model.addAttribute("results", results);
+        return "searchjob";
+    }
 
 }

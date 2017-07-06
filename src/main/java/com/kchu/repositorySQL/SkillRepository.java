@@ -13,5 +13,8 @@ public interface SkillRepository extends CrudRepository<Skill, Integer> {
     @Query(value = "SELECT user_id FROM skill where name = :name", nativeQuery=true)
     public Iterable<Integer> findIdByName(@Param("name")String name);
 
+
+
+
     public Iterable<Skill> findAllByUserId(int id);
 }

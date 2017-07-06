@@ -36,19 +36,19 @@
                                 <label for="name">Name</label>
                                 <input type="text" class="form-control" id="name" th:field="*{name}"/>
                             </div>
-                            <div th:if = "${role} == '[recruiter]'" class="form-group">
+                            <div class="form-group">
                                 <label for="college">College</label>
                                 <input type="text" class="form-control" id="college" th:field="*{college}"/>
                             </div>
-                            <div th:if = "${role} == '[recruiter]'" class="form-group">
+                            <div class="form-group">
                                 <label for="company">Company</label>
                                 <input type="text" class="form-control" id="company" th:field="*{company}"/>
                             </div>
-                            <div th:if = "${role} == '[recruiter]'" class="form-group">
+                            <div sec:authorize="hasAuthority('RECRUITER')" class="form-group">
                                 <label for="skill">Skill</label>
                                 <input type="text" class="form-control" id="skill" th:field="*{skill}"/>
                             </div>
-                            <button type="submit" class="btn btn-default">Submit</button>
+                            <button type="search" class="btn btn-default">Submit</button>
                         </form>
                     </div>
 

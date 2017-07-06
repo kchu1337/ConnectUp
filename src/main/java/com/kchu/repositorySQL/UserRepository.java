@@ -22,4 +22,7 @@ public interface UserRepository extends CrudRepository<User, Integer> {
 
     public User findFirstById(int id);
 
+    public User findByEmail(String email);
+
+    public int countByEmail(String email);
 }

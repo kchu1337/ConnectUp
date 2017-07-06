@@ -38,15 +38,27 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li>
-                        <a href = "/search">Search</a>
+                    <li sec:authorize="isAuthenticated()">
+                        <a href = "/search">Search Users</a>
                     </li>
-                    <li>
+                    <li sec:authorize="hasAuthority('USER')">
+                        <a href = "/searchjobs">Search Jobs</a>
+                    </li>
+                    <li sec:authorize="hasAuthority('USER')">
                         <a href = "/add">Add New Resume</a>
                     </li>
-                    <li>
-                        <a href = "/current">See Resume</a>
+
+                    <li sec:authorize="hasAuthority('USER')">
+                        <a href = "/myresume">See My Resume</a>
                     </li>
+
+                    <li sec:authorize="hasAuthority('RECRUITER')">
+                        <a href = "/postjob">Post a Job</a>
+                    </li>
+                    <li sec:authorize="isAuthenticated()">
+                        <a href = "/notifications">Notifications</a>
+                    </li>
+
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <div class="dropdown">
@@ -55,7 +67,7 @@
                             <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                        <li th:if = "${#authorization.expression('isAnonymous()')}" ><a href="/create">Create Account</a></li>
+                        <li th:if = "${#authorization.expression('isAnonymous()')}" ><a href="/register">Create Account</a></li>
                             <li><a th:href="${#authorization.expression('isAuthenticated()')} ? '/logout' : '/login'"
                                    th:text="${#authorization.expression('isAuthenticated()')} ? 'Logout' : 'Login'">Login</a></li>
                         </ul>
