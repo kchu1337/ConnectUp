@@ -58,7 +58,7 @@
         <tr th:each="row : ${results}">
             <td th:text="${row.title}"></td>
             <td th:text="${row.company}"></td>
-            <<td><a href="#" th:href="@{/jobinfo/{jid} (jid = ${row.id})}">See more Information</a></td>
+            <td><a href="#" th:href="@{/jobinfo/{jid} (jid = ${row.id})}">See more Information</a></td>
         </tr>
     </table>
 </div>
