@@ -19,6 +19,7 @@ public class UserValidator implements Validator {
         User user = (User) target;
         String email = user.getEmail();
         String password = user.getPassword();
+        String authority = user.getAuthority();
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "user.name.empty");;
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "user.email.empty");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "user.password.empty");
@@ -27,6 +28,9 @@ public class UserValidator implements Validator {
         }
         if(password.length() < 5){
             errors.rejectValue("password","user.password.tooShort");
+        }
+        if(authority == null || authority.length()<1){
+            errors.rejectValue("authority","user.authority.notChoose");
         }
     }
 }

@@ -38,6 +38,7 @@
             <option value="USER">Job Seeker</option>
             <option value="RECRUITER">Recruiter</option>
         </select>
+        <span th:if="${#fields.hasErrors('authority')}" th:errors="*{authority}">Error</span>
         <br/>
         <br/>
         <div class= "col-md-3">
