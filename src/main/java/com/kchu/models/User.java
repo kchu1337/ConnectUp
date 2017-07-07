@@ -2,15 +2,13 @@ package com.kchu.models;
 
 import org.springframework.beans.factory.annotation.Value;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by student on 6/28/17.
  */
 @Entity
+@Table(name = "userData")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
