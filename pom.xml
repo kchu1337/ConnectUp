@@ -58,7 +58,7 @@
 		</dependency>
 
 
-		<!----Postgre--->
+		<!--Postgre-->
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
