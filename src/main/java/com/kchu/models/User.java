@@ -8,7 +8,7 @@ import javax.persistence.*;
  * Created by student on 6/28/17.
  */
 @Entity
-@Table(name = "userData")
+@Table(name = "userdata")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
