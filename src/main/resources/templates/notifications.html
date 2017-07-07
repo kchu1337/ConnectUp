@@ -14,6 +14,7 @@
     <br/>
     <br/>
     <table class="table table-striped" th:each="row : ${results}">
+        <th>Matched Jobs</th>
         <tr><td th:text="${row.title}"></td><td th:text="${row.company}"></td></tr>
     </table>
 </div>
