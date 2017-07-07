@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <div th:replace="fragments/bootstrapheader :: jquery"></div>
+    <div th:replace="fragments/bootstrapheader :: bsheader"></div>
+
+    <title>Resume</title>
+</head>
+<body>
+<div th:replace="fragments/navbar :: navbar"></div>
+<div class = "col-md-4 col-md-offset-4">
+    <br/>
+    <br/>
+    <br/>
+    <table class="table table-striped"}">
+        <tr></tr>
+        <tr>Education</tr>
+        <tr><td>Title:</td><td th:text="${job.title}"></td></tr>
+        <tr><td>Company:</td><td th:text="${job.company}"></td></tr>
+        <tr><td>Salary:</td><td th:text="${job.salary}"></td></tr>
+        <tr><td>Skills:</td><td th:text="${job.skillList}"></td></tr>
+        <tr><td>Description:</td><td th:text="${job.description}"></td></tr>
+    </table>
+</div>
+
+</body>
+</html>

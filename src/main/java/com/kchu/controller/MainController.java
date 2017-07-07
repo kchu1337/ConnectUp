@@ -161,4 +161,9 @@ public class MainController {
         return "notifications";
 
     }
+    @RequestMapping("/jobinfo/{jid}")
+    public String seejobInfo(@PathVariable("jid")int jobId, Model model){
+        model.addAttribute("job",jobRepository.findFirstById(jobId));
+        return "jobinfo";
+    }
 }
